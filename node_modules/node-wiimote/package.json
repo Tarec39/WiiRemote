@@ -1,0 +1,19 @@
+{
+  "name": "node-wiimote",
+  "version": "0.1.0",
+  "description": "Provides bindings and event listeners for Wiimotes in node",
+  "main": "wii.js",
+  "scripts": {
+    "test": ""
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.3.3",
+    "node-hid": "^0.7.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ajor023/node-wiimote.git"
+  }
+}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>node-wiimote docs</title>
+		<style>
+			body {
+				font-family: sans-serif;
+				width: 60vw;
+				margin-left: 20vw;
+				padding-top: 10vh;
+				
+			}
+			
+			h1, h2, h3, h4, h5, h6 {
+				font-family: Roboto, sans-serif;
+			}
+			
+			.code {
+				background: #cccccc;
+				border-radius: 3px;
+				font-family: monospace;
+				padding: 1rem;
+			}
+			
+			.code-inline {
+				font-family: monospace;
+			}
+			
+			
+			.red {
+				color: red;
+			}
+			
+			.orange {
+				color: #ff6600;
+			}
+			
+			.lime {
+				color: #00ff00;
+			}
+			
+			.green {
+				color: #007700;
+			}
+			
+			.lblue {
+				color: #4444ff;
+			}
+			
+			.dblue {
+				color: blue;
+			}
+			
+			.purple {
+				color: #cc00ff;
+			}
+			
+			.pink {
+				color: #ff00ff;
+			}
+			
+			.comment {
+				color: #555555;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<h1>Node-Wiimote docs</h1>
+		Basic easy to use Wiimote library for node.js.<br />
+		<br />
+		<h2>Contents:</h2>
+		<div class="code">
+			<a href="#hd1">1. Quick Start</a><br />
+			&nbsp;&nbsp;<a href="#hd1_1">1.1 Installation</a><br />
+			&nbsp;&nbsp;<a href="#hd1_2">1.2 Initialise</a><br />
+			&nbsp;&nbsp;<a href="#hd1_3">1.3 Add Listeners</a><br />
+			&nbsp;&nbsp;<a href="#hd1_4">1.4 Remove Listeners</a><br />
+			<a href="#hd2">2. Events</a><br />
+			&nbsp;&nbsp;<a href="#hd2_1">2.1 Buttons</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hd2_1_1">2.1.1 Types</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hd2_1_2">2.1.2 Actions</a><br />
+			<a href="#hd3">3. Feedback</a><br />
+			&nbsp;&nbsp;<a href="#hd3_1">3.1 Haptics</a><br />
+			&nbsp;&nbsp;<a href="#hd3_2">3.2 Lights</a><br />
+		</div>
+		<br />
+		<br />
+		<h2 id="hd1">1. Quick Start</h2>
+		<h3 id="hd1_1">1.1 Installation</h3>
+		<div class="code">
+			<span class="purple">npm</span> install node-wiimote --save
+		</div>
+		<h3 id="hd1_2">1.2 Initialise</h3>
+		<div class="code">
+			<span class="dblue">var</span> Wiimote = <span class="orange">require</span>(<span class="green">"node-wiimote"</span>); <span class="comment">// Require in library</span><br />
+			<span class="dblue">var</span> wii = <span class="dblue">new</span> Wiimote(); <span class="comment">// Initialize wiimote library</span>
+		</div>
+		<br />
+		Then check against wii.exists
+		<br />
+		<br />
+		<div class="code">
+			<span class="purple">if</span> (wii.exists) {<br />
+			&nbsp;&nbsp;<span class="comment">// Do something</span><br />
+			}
+		</div>
+		<h3 id="hd1_3">1.3 Add Listeners</h3>
+		<div class="code">
+			wii.<span class="dblue">on</span>(<span class="lblue">type</span>, <span class="lblue">action</span>, <span class="lblue">callback</span>); <span class="comment">// Returns listener token used to remove listeners.</span>
+		</div>
+		<br />
+		Sample uses: 
+		<br />
+		<br />
+		<div class="code">
+			var pressBToken = wii.<span class="dblue">on</span>(<span class="green">"button_b"</span>, <span class="green">"pressed"</span>, handlePressedB);<br />
+			var relesBToken = wii.<span class="dblue">on</span>(<span class="green">"button_b"</span>, <span class="green">"released"</span>, handleReleasedB);<br />
+			var relesHomeToken = wii.<span class="dblue">on</span>(<span class="green">"button_home"</span>, <span class="green">"released"</span>, exitApplication);<br />
+		</div>
+		<br />
+		<a href="#hd2">More on events: Section 2</a>
+		<br />
+		<br />
+		<h3 id="hd1_4">1.4 Remove Listeners</h3>
+		<div class="code">
+			wii.<span class="dblue">off</span>(<span class="lblue">token</span>); <span class="comment">// Takes listener token and removes listener</span>
+		</div>
+		<br />
+		Sample uses: 
+		<br />
+		<br />
+		<div class="code">
+			wii.<span class="dblue">off</span>(pressBToken);<br />
+			wii.<span class="dblue">off</span>(relesBToken);<br />
+			wii.<span class="dblue">off</span>(relesHomeToken);<br />
+		</div>
+		<br />
+		<br />
+		<h2 id="hd2">2. Events</h2>
+		<h3 id="hd2_1">2.1 Buttons</h3>
+		<h4 id="hd2_1_1">2.1.1 Types</h3>
+		<b>
+		button_a<br />
+		button_b<br />
+		button_1<br />
+		button_2<br />
+		button_plus<br />
+		button_minus<br />
+		button_left<br />
+		button_right<br />
+		button_up<br />
+		button_down<br />
+		button_home<br />
+		</b>
+		<h4 id="hd2_1_2">2.1.2 Actions</h3>
+		<b>pressed</b><br />
+		Triggered when a button is pressed down.<br />
+		<br />
+		<b>released</b><br />
+		Triggered when a button is released.<br />
+		<br />
+		<h2 id="hd3">3. Feedback</h2>
+		<h3 id="hd3_1">3.1 Haptics/Rumble/Vibration</h3>
+		<div class="code">
+			wii.<span class="dblue">vibrate</span>(<span class="lblue">&lt;(true/false)|duration&gt;</span>);
+		</div>
+		<br />
+		Expects and does as the following:</br>
+		<span class="code-inline">true/false (boolean)</span>: Enables/Disables vibration or rumble feature</br>
+		<span class="code-inline">duration (number, milliseconds)</span>: Enables vibration for a set length of time</br>
+		<h3 id="hd3_2">3.2 Lights</h3>
+		<div class="code">
+			wii.<span class="dblue">setLights</span>(<span class="lblue">1</span>, <span class="lblue">2</span>, <span class="lblue">3</span>, <span class="lblue">4</span>);
+		</div>
+		<br />
+		Takes 4 boolean values and turns on the LEDs on the bottom of the Wiimote (left to right)
+		<br />
+		<br />
+		<br />
+		<br />
+	</body>
+</html>
+
+
+

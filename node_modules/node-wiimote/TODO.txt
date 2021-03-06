@@ -1,0 +1,40 @@
+TODO FOR VERSION 0.1.0:
+
+Finished!
+
+TODO FOR FUTURE VERSIONS:
+
+Planned for 0.2.0: 'The Preparation Update'
+	Make errors programatic and not print to console, non critical errors should continue code.
+	Critical errors should kill code, possibly caught.
+	Non-critical errors should catch themselves
+	Warnings should print to console.
+
+	Change the way events are stored and are decided, ready for 0.3 and 0.4
+	Including optimization for things lol
+	Add click event action (pressed and released within 150ms) for button types
+	
+	Allow passing in button_*/button_all for all button events
+	Throw an event object at the constructors
+	Allow passing names of events, actions of events, or all into off to remove all listeners of that type
+	
+	Add getting list of all events (hopefully not needed but could be passed through to users through GUI)
+
+Planned for 0.3.0: 'The Listening Update'
+	Add other report types, and when incompatible report given possibly send back to known report	
+	Add dynamically knowing and switching between different report modes based on event listeners
+	
+Planned for 0.4.0: 'The Motion Update'
+	Add motion support
+	+ Add recognizing the motion things
+	+ Add event type: accelerate_
+	+ Add event type: velocity_
+	+ Add event type: rotation_
+	+ Add event type: gesture_
+	+ Add getter functions: distanceFromInit, rotation(),
+
+Planned for 0.5.0: 'The Nunchuck Update'
+	Add Nunchuck support - details to be worked out
+	Possibly add motion plus support? If I do this will become 'the accessory update and most external controllers will be added
+
+

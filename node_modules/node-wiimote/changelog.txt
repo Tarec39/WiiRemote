@@ -1,0 +1,26 @@
+-- 0.1.0: 'THE FIX EVERYTHING UPDATE'
+Created Git Repo! Yay!
+Added built in documentation that is more lengthy.
+Added new TODO.txt for todo notes and stuff
+Added new message for unknown data reports
+
+Changed vibrate() to accept a number, to allow vibration for a length of time.
+	vibrate() still accepts boolean values by design, and is backwards compatible
+Changed temporary description to something a bit more permanent
+Changed init behavior, has variable instance.exists which contains that data
+
+Fixed missing require("colors")
+Fixed possible bug where plugging in an expansion device could prevent further reporting
+
+Removed unused dependecies from package.json
+
+-- 0.0.3
+Fixed compile error at: prototype.on
+
+-- 0.0.2
+Added README
+Added Changelog
+Changed wii.vibration to wii.vibrate
+
+-- 0.0.1 
+Initial Commit.

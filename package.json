@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "node-wiimote": "^0.1.0"
+  }
+}
